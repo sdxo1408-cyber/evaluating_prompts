@@ -8,7 +8,7 @@ The project follows a basic prompt-eval pattern — generate a dataset of test c
 
 Everything lives in [dataset.ipynb](dataset.ipynb), which walks through the pipeline step by step:
 
-1. **Generate a dataset** (`generate_dataset`) — asks Claude to invent 10 realistic productivity/agent tasks (e.g. "Organize a team meeting to discuss Q4 project roadmap and budget allocation"). The result is saved to [dataset.json](dataset.json).
+1. **Generate a dataset** (`generate_dataset`) — asks Claude to invent 10 realistic productivity/agent tasks (e.g. "Plan and organize a company team building event for 50 people"). The result is saved to [dataset.json](dataset.json).
 2. **Run the prompt under test** (`run_prompt`) — takes a test case and asks Claude to break that task into sub-tasks. This is the prompt being evaluated.
 3. **Score each case** (`run_test_case`) — runs the prompt and wraps the output with its test case and a score. Grading is currently a placeholder (`score = 10` for every case) — a real grading step (e.g. a model-based judge or rubric) is a TODO.
 4. **Run the full evaluation** (`run_eval`) — loads `dataset.json`, runs every test case through `run_test_case`, and collects the results.
